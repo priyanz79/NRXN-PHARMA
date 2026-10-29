@@ -1,0 +1,14 @@
+node_modules/
+.expo/
+.test-build/
+dist/
+dist-*/
+dist-native/
+.env*
+!.env.example
+.npm-cache/
+.firebase-config/
+*.log
+
+.vercel
+.env*

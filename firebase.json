@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "authorizedDomains": [
+      "localhost",
+      "nrxn-pharmaceuticals-in.firebaseapp.com",
+      "nrxn-mobile-app.vercel.app"
+    ],
+    "providers": {
+      "emailPassword": true
+    }
+  }
+}

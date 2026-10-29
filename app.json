@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "NRXN Pharmaceuticals",
+    "slug": "nrxn-pharmaceuticals",
+    "version": "0.3.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nrxn.pharmaceuticals"
+    },
+    "android": {
+      "package": "com.nrxn.pharmaceuticals",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon-adaptive.png",
+        "backgroundColor": "#00276c"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "name": "NRXN Pharmaceuticals",
+      "favicon": "./assets/icon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "NRXN uses your location only when you request a clinic check-in to verify your distance from the planned visit."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/nrxn/official-logo.png",
+          "imageWidth": 200,
+          "backgroundColor": "#00276c"
+        }
+      ],
+      "expo-status-bar"
+    ]
+  }
+}

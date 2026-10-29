@@ -1,0 +1,10 @@
+node_modules
+.expo
+.expo-home
+.firebase-config
+.npm-cache
+.test-build
+dist
+dist-*
+.env
+.env.local
