@@ -45,7 +45,7 @@ export const officialProducts: Product[] = [
 export function seed(): State {
   const today = localDate();
   const contacts: Contact[] = [
-    { id: 'd1', name: 'Dr. Aditi Shah', specialty: 'Cardiology', kind: 'Doctor', patch: 'Central', address: 'Demo clinic · Central Hospital', grade: 'A', frequency: 4, latitude: 19.076, longitude: 72.8777 },
+    { id: 'd1', name: 'Dr. Aditi Shah', specialty: 'Cardiology', kind: 'Doctor', patch: 'Central', address: 'Demo clinic · Central Hospital', grade: 'A', frequency: 4, latitude: 28.387, longitude: 79.416 },
     { id: 'd2', name: 'Dr. Rohan Mehta', specialty: 'General medicine', kind: 'Doctor', patch: 'Central', address: 'Demo clinic · Park Road', grade: 'A', frequency: 4, latitude: 19.077, longitude: 72.878 },
     { id: 'd3', name: 'Dr. Neha Rao', specialty: 'Orthopaedics', kind: 'Doctor', patch: 'Highway', address: 'Demo clinic · Highway Road', grade: 'B', frequency: 2, latitude: 19.08, longitude: 72.88 },
     { id: 'c1', name: 'CarePlus Pharmacy', specialty: 'Retail chemist', kind: 'Chemist', patch: 'Central', address: 'Demo outlet · Market Road', grade: 'B', frequency: 2, latitude: 19.0765, longitude: 72.877 },
