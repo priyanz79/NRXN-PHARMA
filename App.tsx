@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { ActivityIndicator, Modal, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { ActivityIndicator, Modal, Platform, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { StoreProvider, useStore } from './src/store';
 import { Role } from './src/domain';
 import { Badge, Button, H, Icon, Row, Small, colors, styles } from './src/ui';
@@ -28,7 +29,7 @@ function Workspace() {
   </View>;
 }
 function Root() { const { role, ready, error, notice, clearNotice } = useStore(); return <SafeAreaView style={{ flex: 1, backgroundColor: colors.bg }}><StatusBar style="dark" />{!ready ? <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: 30 }}>{error ? <Small>{error}</Small> : <ActivityIndicator color={colors.teal} />}</View> : role === 'Visitor' ? <Visitor /> : <Workspace key={role} />}{notice ? <View accessibilityLiveRegion="polite" style={app.toast}><Text style={{ color: 'white', flex: 1, fontSize: 13, lineHeight: 19 }}>{notice}</Text><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={clearNotice} style={{ padding: 12 }}><Icon name="close" color="white" /></Pressable></View> : null}</SafeAreaView>; }
-export default function App() { return <SafeAreaProvider><StoreProvider><Root /></StoreProvider></SafeAreaProvider>; }
+export default function App() { return <><SafeAreaProvider><StoreProvider><Root /></StoreProvider></SafeAreaProvider>{Platform.OS === 'web' ? <VercelAnalytics /> : null}</>; }
 const app = StyleSheet.create({
   modal: { flex: 1, backgroundColor: '#102E3BCC' }, sidebar: { width: 232, backgroundColor: 'white', padding: 22, borderRightWidth: 1, borderColor: colors.line, gap: 7 }, navLabel: { fontSize: 9, color: '#9BAAA3', letterSpacing: 2, marginTop: 35, marginBottom: 12 }, navItem: { flexDirection: 'row', alignItems: 'center', gap: 12, padding: 13, borderRadius: 11, minHeight: 46 }, sidebarNote: { backgroundColor: '#F5F8F3', borderRadius: 15, padding: 16, gap: 10, marginBottom: 20 }, topbar: { paddingHorizontal: 30, paddingVertical: 22, borderBottomWidth: 1, borderColor: colors.line, backgroundColor: 'white', flexDirection: 'row', alignItems: 'center', gap: 14 }, avatar: { height: 42, width: 42, borderRadius: 21, backgroundColor: '#E4EDE0', alignItems: 'center', justifyContent: 'center' }, bottomNav: { flexDirection: 'row', backgroundColor: 'white', borderTopWidth: 1, borderColor: colors.line, paddingVertical: 12 }, bottomItem: { flex: 1, alignItems: 'center', gap: 5, minHeight: 44, justifyContent: 'center' }, toast: { position: 'absolute', bottom: 90, alignSelf: 'center', width: '90%', maxWidth: 550, backgroundColor: '#153D3A', borderRadius: 14, padding: 14, flexDirection: 'row', alignItems: 'center', gap: 10, elevation: 8 },
 });
